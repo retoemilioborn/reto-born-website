@@ -1,209 +1,230 @@
+// Apple 2030 - Ultra Minimal Interactions
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const offset = 80;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Navbar background on scroll
+// Dynamic navigation behavior
 const nav = document.querySelector('.nav');
-if (nav) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
-        } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            nav.style.boxShadow = '0 1px 0 rgba(0, 0, 0, 0.05)';
-        }
-    });
-}
+let lastScrollY = window.scrollY;
 
-// Scroll Reveal Animation
-const scrollReveal = () => {
-    const elements = document.querySelectorAll('.scroll-reveal');
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    if (currentScrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.backdropFilter = 'blur(30px) saturate(180%)';
+    } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.72)';
+        nav.style.backdropFilter = 'blur(20px) saturate(180%)';
+    }
 
-    elements.forEach(element => {
-        observer.observe(element);
-    });
+    lastScrollY = currentScrollY;
+});
+
+// Scroll Reveal Animation with Stagger
+const observerOptions = {
+    threshold: 0.05,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-// Initialize animations when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    scrollReveal();
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            scrollObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
 
-    // Add fade-in animations to hero elements
-    document.querySelectorAll('.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3').forEach(el => {
-        el.style.opacity = '0';
+// Initialize scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Observe all scroll-reveal elements
+    document.querySelectorAll('.scroll-reveal').forEach(element => {
+        scrollObserver.observe(element);
+    });
+
+    // Hero animations
+    const heroElements = document.querySelectorAll('.fade-in, .fade-in-delay, .fade-in-delay-2, .fade-in-delay-3');
+    heroElements.forEach((el, index) => {
         setTimeout(() => {
             el.style.opacity = '1';
-        }, 100);
+            el.style.transform = 'translateY(0)';
+        }, index * 100);
     });
 });
 
-// Create mobile menu toggle functionality
-const createMobileNav = () => {
-    const navContainer = document.querySelector('.nav-content');
-    if (!navContainer) return;
+// Mobile Menu - Ultra Minimal
+const createMobileMenu = () => {
+    const navContent = document.querySelector('.nav-content');
+    if (!navContent) return;
 
-    // Create hamburger button
-    const hamburger = document.createElement('div');
-    hamburger.className = 'mobile-toggle';
-    hamburger.innerHTML = `
-        <span></span>
+    const menuButton = document.createElement('button');
+    menuButton.className = 'mobile-menu-button';
+    menuButton.setAttribute('aria-label', 'Menu');
+    menuButton.innerHTML = `
         <span></span>
         <span></span>
     `;
-    hamburger.style.cssText = `
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 1001;
-    `;
 
-    // Add hamburger styles for mobile
     const style = document.createElement('style');
     style.textContent = `
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .mobile-menu-button span {
+            display: block;
+            width: 18px;
+            height: 1.5px;
+            background: var(--pure-black);
+            margin: 4px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .mobile-menu-button.active span:first-child {
+            transform: rotate(45deg) translate(3px, 3px);
+        }
+
+        .mobile-menu-button.active span:last-child {
+            transform: rotate(-45deg) translate(3px, -3px);
+        }
+
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: flex !important;
-            }
-
-            .mobile-toggle span {
-                width: 25px;
-                height: 2px;
-                background: var(--text-primary);
-                transition: all 0.3s;
-                border-radius: 2px;
-            }
-
-            .mobile-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-
-            .mobile-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+            .mobile-menu-button {
+                display: block;
             }
 
             .nav-links {
                 position: fixed;
-                top: -100%;
+                top: 0;
                 left: 0;
                 right: 0;
-                background: white;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
                 flex-direction: column;
-                padding: 80px 20px 40px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: top 0.3s;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s;
             }
 
             .nav-links.active {
-                top: 0;
-                display: flex !important;
+                opacity: 1;
+                pointer-events: all;
             }
 
             .nav-link {
-                padding: 15px;
-                font-size: 18px;
+                font-size: 24px;
+                font-weight: 300;
+                letter-spacing: -0.02em;
             }
 
             .btn-download-nav {
-                margin-top: 20px;
-                width: 100%;
-                text-align: center;
-                padding: 15px 30px;
+                font-size: 18px;
+                padding: 14px 40px;
             }
         }
     `;
     document.head.appendChild(style);
 
-    navContainer.appendChild(hamburger);
+    navContent.appendChild(menuButton);
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+    menuButton.addEventListener('click', () => {
+        menuButton.classList.toggle('active');
         document.querySelector('.nav-links').classList.toggle('active');
+        document.body.style.overflow = menuButton.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Close menu when clicking on a link
+    // Close menu on link click
     document.querySelectorAll('.nav-link, .btn-download-nav').forEach(link => {
         link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
+            menuButton.classList.remove('active');
             document.querySelector('.nav-links').classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
 };
 
-// Initialize mobile navigation
-createMobileNav();
+createMobileMenu();
 
-// Preload images for better performance
+// Preload critical images
 const preloadImages = () => {
-    const images = [
+    const criticalImages = [
         'screenshots/screen1.jpg',
         'screenshots/screen2.jpg',
         'screenshots/screen3.jpg'
     ];
 
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
     });
 };
 
 preloadImages();
 
-// Create scroll progress indicator
-const createProgressBar = () => {
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #007AFF, #FF2D55);
-        width: 0%;
-        z-index: 10000;
-        transition: width 0.1s;
-    `;
-    document.body.appendChild(progressBar);
+// Subtle parallax effect
+const parallaxElements = document.querySelectorAll('.hero-title, .hero-subtitle');
 
-    window.addEventListener('scroll', () => {
-        const winScroll = document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + '%';
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+
+    parallaxElements.forEach((element, index) => {
+        const speed = 0.5 + (index * 0.1);
+        const yPos = -(scrolled * speed);
+
+        if (Math.abs(yPos) < 200) {
+            element.style.transform = `translateY(${yPos}px)`;
+        }
     });
-};
+});
 
-createProgressBar();
+// Performance optimization - Lazy load images
+const lazyImages = document.querySelectorAll('img[data-src]');
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+        }
+    });
+});
 
-// Console branding
-console.log('%c🏋️ Reto Born', 'font-size: 24px; font-weight: bold; color: #007AFF;');
-console.log('%cTransforma tu cuerpo en 4 semanas', 'font-size: 14px; color: #666;');
-console.log('%c💪 Con Emilio Born', 'font-size: 12px; color: #999;');
+lazyImages.forEach(img => imageObserver.observe(img));
+
+// Minimal console signature
+console.log(
+    '%cReto Born',
+    'font-family: -apple-system; font-size: 14px; font-weight: 600; color: #000000;'
+);
+console.log(
+    '%cDesigned in California',
+    'font-family: -apple-system; font-size: 11px; color: #8E8E93;'
+);
