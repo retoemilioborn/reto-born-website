@@ -3,182 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reto Born - Tu transformación en 4 semanas</title>
-    <meta name="description" content="Transforma tu cuerpo en 4 semanas con Emilio Born. Rutinas progresivas, coach IA por voz y resultados garantizados.">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Reto Born - Transforma tu cuerpo en 4 semanas</title>
+    <meta name="description" content="Únete al Reto Born con Emilio Born. Rutinas personalizadas, nutrición adaptada y resultados garantizados.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero - La esencia -->
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">RETO BORN</div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Características</a>
+                    <a href="#app" class="nav-link">La App</a>
+                    <a href="#testimonials" class="nav-link">Testimonios</a>
+                    <a href="#download" class="btn-download-nav">Descargar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="hero-line">Tu cuerpo</span>
-                <span class="hero-line gradient">transformado</span>
-                <span class="hero-line">en 4 semanas</span>
-            </h1>
-
-            <p class="hero-description">
-                Un método. Un compromiso. Una transformación.
-            </p>
-
-            <div class="hero-action">
-                <a href="https://apps.apple.com/app/reto-born/id6753121901" class="download-button">
-                    <span class="button-text">Descargar</span>
-                </a>
-                <span class="price-tag">$9.99/mes</span>
-            </div>
-        </div>
-
-        <div class="hero-visual">
-            <div class="phone-container">
-                <video autoplay muted loop playsinline class="demo-video">
-                    <source src="demo.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- El Método - Simplicidad en la complejidad -->
-    <section class="method">
-        <div class="method-content">
-            <h2 class="section-title">El método</h2>
-
-            <div class="method-grid">
-                <div class="method-item">
-                    <span class="method-number">01</span>
-                    <h3>Rutinas progresivas</h3>
-                    <p>Cada semana más intensa. Cada día diferente.</p>
-                </div>
-
-                <div class="method-item">
-                    <span class="method-number">02</span>
-                    <h3>Coach IA por voz</h3>
-                    <p>Habla con Emilio. 24 horas. Todos los días.</p>
-                </div>
-
-                <div class="method-item">
-                    <span class="method-number">03</span>
-                    <h3>Cardio flexible</h3>
-                    <p>Elige el que prefieras según tu día.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- La experiencia - Visual storytelling -->
-    <section class="experience">
-        <div class="experience-content">
-            <div class="experience-text">
-                <h2 class="section-title">Diseñado para ti</h2>
-                <p class="section-description">
-                    Cada detalle ha sido pensado para que logres tu transformación.
-                    Sin excusas. Sin complicaciones. Solo resultados.
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">
+                    Transforma tu cuerpo<br>
+                    <span class="gradient-text">en 4 semanas</span>
+                </h1>
+                <p class="hero-subtitle fade-in-delay">
+                    Únete al reto de Emilio Born. Rutinas personalizadas, nutrición adaptada
+                    y resultados garantizados.
                 </p>
-
-                <div class="features-list">
-                    <div class="feature">
-                        <span class="feature-icon">→</span>
-                        <span>Videos HD con técnica perfecta</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">→</span>
-                        <span>Rutinas específicas por género</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">→</span>
-                        <span>Plan nutricional incluido</span>
-                    </div>
+                <div class="hero-buttons fade-in-delay-2">
+                    <a href="#download" class="btn-primary">
+                        <svg class="apple-icon" viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Descargar en App Store
+                    </a>
+                    <a href="#features" class="btn-secondary">Conocer más</a>
                 </div>
-            </div>
-
-            <div class="experience-visual">
-                <div class="screens-stack">
-                    <img src="screen-1.png" alt="App Reto Born" class="screen screen-1">
-                    <img src="screen-2.png" alt="Rutinas" class="screen screen-2">
-                    <img src="screen-3.png" alt="Coach IA" class="screen screen-3">
+                <div class="stats fade-in-delay-3">
+                    <div class="stat">
+                        <div class="stat-number">10K</div>
+                        <div class="stat-label">Atletas</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Valoración</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Completado</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Emilio - La persona detrás del método -->
+    <!-- App Screenshots Section -->
+    <section class="app-showcase">
+        <div class="container">
+            <h2 class="section-title">Conoce la App</h2>
+            <p class="section-subtitle">Una experiencia completa de fitness personalizada</p>
+
+            <div class="app-screens">
+                <div class="phone-mockup scroll-reveal">
+                    <div class="phone-frame">
+                        <img src="screenshots/screen1.jpg" alt="Selección de género" class="phone-screen">
+                    </div>
+                    <h3>Personalización Total</h3>
+                    <p>Comienza seleccionando tu género para recibir rutinas específicamente diseñadas para ti</p>
+                </div>
+
+                <div class="phone-mockup scroll-reveal delay-1">
+                    <div class="phone-frame featured">
+                        <img src="screenshots/screen2.jpg" alt="Rutinas de ejercicio" class="phone-screen">
+                    </div>
+                    <h3>Rutinas Progresivas</h3>
+                    <p>Videos HD con instrucciones detalladas. Nuevas rutinas cada semana que aumentan en intensidad</p>
+                </div>
+
+                <div class="phone-mockup scroll-reveal delay-2">
+                    <div class="phone-frame">
+                        <img src="screenshots/screen3.jpg" alt="Chat con Emilio" class="phone-screen">
+                    </div>
+                    <h3>Emilio Siempre Contigo</h3>
+                    <p>Chat con voz disponible 24/7. Emilio responde todas tus dudas en tiempo real</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Todo lo que necesitas</h2>
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-number">01</div>
+                    <h3>Personalización</h3>
+                    <p>Rutinas adaptadas específicamente a tu cuerpo, nivel y objetivos</p>
+                </div>
+                <div class="feature-card scroll-reveal delay-1">
+                    <div class="feature-number">02</div>
+                    <h3>Nutrición</h3>
+                    <p>Plan alimenticio basado en ciencia para optimizar tu transformación</p>
+                </div>
+                <div class="feature-card scroll-reveal delay-2">
+                    <div class="feature-number">03</div>
+                    <h3>Tecnología</h3>
+                    <p>Interfaz intuitiva con seguimiento automático de progreso</p>
+                </div>
+                <div class="feature-card scroll-reveal delay-3">
+                    <div class="feature-number">04</div>
+                    <h3>Precisión</h3>
+                    <p>Métricas detalladas y análisis en tiempo real de tu evolución</p>
+                </div>
+                <div class="feature-card scroll-reveal delay-4">
+                    <div class="feature-number">05</div>
+                    <h3>Resultados</h3>
+                    <p>Metodología probada con más de 10,000 transformaciones exitosas</p>
+                </div>
+                <div class="feature-card scroll-reveal delay-5">
+                    <div class="feature-number">06</div>
+                    <h3>Inteligencia</h3>
+                    <p>Asistente con IA entrenada por Emilio Born disponible siempre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach Section -->
     <section class="coach">
-        <div class="coach-content">
-            <h2 class="section-title">Emilio Born</h2>
-            <p class="coach-description">
-                15 años transformando vidas.<br>
-                10,000+ historias de éxito.<br>
-                Un método probado.
-            </p>
-        </div>
-    </section>
-
-    <!-- Testimonios - Prueba social minimalista -->
-    <section class="testimonials">
-        <div class="testimonials-content">
-            <div class="testimonial-item">
-                <p class="testimonial-text">
-                    "Las rutinas son perfectas. Emilio siempre está disponible."
-                </p>
-                <p class="testimonial-author">María G. · Perdió 8kg</p>
-            </div>
-
-            <div class="testimonial-item featured">
-                <p class="testimonial-text">
-                    "La mejor inversión en mi salud. Resultados reales."
-                </p>
-                <p class="testimonial-author">Carlos M. · Ganó 5kg de músculo</p>
-            </div>
-
-            <div class="testimonial-item">
-                <p class="testimonial-text">
-                    "El coach por voz es increíble. Como tener un entrenador 24/7."
-                </p>
-                <p class="testimonial-author">Ana P. · Transformó su vida</p>
+        <div class="container">
+            <div class="coach-content">
+                <div class="coach-info scroll-reveal">
+                    <h2 class="section-title">Entrena con Emilio Born</h2>
+                    <p class="coach-description">
+                        Con más de 15 años de experiencia transformando cuerpos y vidas,
+                        Emilio Born ha desarrollado un método único que combina entrenamiento
+                        funcional con nutrición inteligente.
+                    </p>
+                    <div class="coach-stats">
+                        <div class="coach-stat">
+                            <span class="coach-stat-number">15+</span>
+                            <span class="coach-stat-label">Años de experiencia</span>
+                        </div>
+                        <div class="coach-stat">
+                            <span class="coach-stat-number">10k+</span>
+                            <span class="coach-stat-label">Vidas transformadas</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final - Claridad absoluta -->
-    <section class="final-cta">
-        <div class="cta-content">
-            <h2 class="cta-title">Comienza hoy</h2>
-            <p class="cta-description">
-                Tu transformación está a un tap de distancia.
-            </p>
-
-            <a href="https://apps.apple.com/app/reto-born/id6753121901" class="download-button-large">
-                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
-                     alt="Descargar en App Store"
-                     class="app-store-badge">
-            </a>
-
-            <p class="availability">
-                Disponible solo en iOS · Requiere iOS 13.0 o posterior
-            </p>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Historias de éxito</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">5.0</div>
+                    <p>"Increíble transformación en solo 4 semanas. Las rutinas son perfectas y Emilio siempre está disponible para resolver dudas."</p>
+                    <div class="testimonial-author">
+                        <strong>María G.</strong>
+                        <span>Perdió 8kg</span>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal delay-1">
+                    <div class="rating">5.0</div>
+                    <p>"La mejor inversión en mi salud. La app es súper fácil de usar y los resultados son reales."</p>
+                    <div class="testimonial-author">
+                        <strong>Carlos M.</strong>
+                        <span>Ganó 5kg de músculo</span>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal delay-2">
+                    <div class="rating">5.0</div>
+                    <p>"El chat con voz de Emilio es increíble, es como tener un entrenador personal 24/7."</p>
+                    <div class="testimonial-author">
+                        <strong>Ana P.</strong>
+                        <span>Transformó su vida</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer - Lo esencial -->
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Invierte en tu transformación</h2>
+            <div class="pricing-card scroll-reveal">
+                <div class="price-tag">
+                    <span class="currency">$</span>
+                    <span class="price">9.99</span>
+                    <span class="period">/mes</span>
+                </div>
+                <h3>Acceso Completo</h3>
+                <ul class="pricing-features">
+                    <li>Rutinas progresivas semanales</li>
+                    <li>Videos HD con instrucciones</li>
+                    <li>Chat con voz de Emilio Born 24/7</li>
+                    <li>Plan nutricional personalizado</li>
+                    <li>Programa de cardio incluido</li>
+                    <li>Comunidad exclusiva</li>
+                </ul>
+                <a href="#download" class="btn-primary btn-large">Comenzar ahora</a>
+                <p class="pricing-note">Cancela cuando quieras • Sin compromisos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section class="download-cta" id="download">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Comienza tu transformación hoy</h2>
+                <p class="cta-subtitle">Únete a miles de personas que ya están cambiando su vida</p>
+                <div class="app-store-badge">
+                    <a href="https://apps.apple.com" class="app-store-link">
+                        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store-es.svg"
+                             alt="Descargar en App Store"
+                             class="app-store-img">
+                    </a>
+                </div>
+                <p class="cta-note">Disponible solo en iOS • Requiere iOS 13.0 o posterior</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <span class="footer-logo">RETO BORN</span>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>RETO BORN</h3>
+                    <p>Tu transformación comienza aquí</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Política de Privacidad</a>
+                    <a href="/terms-of-service.html">Términos de Servicio</a>
+                    <a href="mailto:soporte@retoborn.com">Contacto</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">TikTok</a>
+                </div>
             </div>
-
-            <div class="footer-links">
-                <a href="/privacy-policy.html">Privacidad</a>
-                <span class="separator">·</span>
-                <a href="/terms-of-service.html">Términos</a>
-                <span class="separator">·</span>
-                <a href="mailto:soporte@retoborn.com">Contacto</a>
-            </div>
-
-            <div class="footer-copyright">
-                <p>© 2025 Born Comps by Gymtopz Inc.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Reto Born. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
