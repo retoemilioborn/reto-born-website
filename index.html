@@ -26,10 +26,14 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <canvas id="smoke-canvas"></canvas>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">Reto Born</span>
+                    <span class="gradient-text">
+                        <span class="falling-word" id="reto">Reto</span>
+                        <span class="falling-word" id="born">Born</span>
+                    </span>
                 </h1>
                 <p class="hero-subtitle">
                     Transforma tu cuerpo en 4 semanas con Emilio Born
@@ -120,6 +124,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
